@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/styleForm.css">
+    <link rel="stylesheet" href="css/form.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="containerHeader" id="page-home">
+            <div class="containerImg">
+                <img src="IMG/LOGO - TransBen COREL.png" alt="">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="homePage">
+            <div class="containerTitleHome">
+                <p>Troca de Patrimonio</p>
+                <p>Formulario gerador de PDF para troca de patrimonio</p>
+
+                <a href="#page-1"><button>Começar</button></a>
+            </div>
+            <div class="containerImgHome">
+                <img src="IMG/imgHome.jpg" alt="">
+            </div>
+        </div>
+    </main>
+
+    <div class="containerInfo" id="page-1">
+        <p>Formulario do patrimonio a ser trocado: </p>
+        <p>- Preencha as informacoes do pratrimonio que vai ser substituido</p>
+    </div>
+
+    <form action="http://localhost:3000/pdf" method="post">
+        <div class="Allform">
+            <div class="containerInputsAll">
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="nome">Funcionario:</label>
+                        <input type="text" class="inputFuncionario" name="nome" placeholder="Nome do funcionario" />
+                    </div>
+                    <div class="flexClumn">
+                        <label for="nome" class="left">Data atual:</label>
+                        <input type="date" class="inputData" name="date" />
+                    </div>
+                </div>
+
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="modelos">Modelo do aparelho:</label>
+                        <select name="modelo">
+                            <option value="Motorola Moto E5">Motorola Moto E5</option>
+                            <option value="Motorola Moto E6 Plus">Motorola Moto E6 Plus</option>
+                            <option value="Motorola Moto E6 Play">Motorola Moto E6 Play</option>
+                            <option value="Motorola Moto E6s Azul">Motorola Moto E6s Azul</option>
+                        </select>
+                    </div>
+                    <div class="flexClumn">
+                        <label for="modelos">Problema identificado:</label>
+                        <select name="problema">
+                            <option value="Bateria Viciada">Bateria Viciada</option>
+                            <option value="Tela quebrada">Tela quebrada</option>
+                            <option value="Conector do carregador">Conector do carregador</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="Série">Numero de série:</label>
+                        <input type="text" class="inputSerie" name="serie" placeholder="Numero de Série do aparelho" />
+                    </div>
+                    <div class="flexClumn">
+                        <label for="imei">Numero de EMEI:</label>
+                        <input type="text" class="inputImei" name="imei" placeholder="IMEI do aparelho" />
+                    </div>
+                </div>
+
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="numeroChip">Numero de celular:</label>
+                        <input type="text" class="inputChip" name="numeroChip" placeholder="Numero do chip" />
+                    </div>
+                    <div class="flexClumn">
+                        <label for="numeroPatrimonio">Numero de Patrimonio:</label>
+                        <input type="text" class="inputPatrimonio" name="numeroPatrimonio"
+                            placeholder="Numeração do patrimonio" />
+                    </div>
+                </div>
+                <div class="containerInputLado">
+                    <div class="flexClumn options">
+                        <button type="reset">Limpar</button>
+                        <a href="#page-home"><input value="Voltar" readonly></input></a>
+                        <a href="#page-2"><input value="Proximo" readonly></input></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="containerInfo" id="page-2">
+            <p>Formulario do patrimonio novo: </p>
+            <p>- Preencha as informaoes do novo patrimonio a ser entregue</p>
+        </div>
+
+        <div class="Allform">
+            <div class="containerInputsAll">
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="modelos">Modelo do aparelho entregue</label>
+                        <select name="modeloNovo">
+                            <option value="Motorola Moto E5">Motorola Moto E5</option>
+                            <option value="Motorola Moto E6 Plus">Motorola Moto E6 Plus</option>
+                            <option value="Motorola Moto E6 Play">Motorola Moto E6 Play</option>
+                            <option value="Motorola Moto E6s Azul">Motorola Moto E6s Azul</option>
+                        </select>
+                    </div>
+                    <div class="flexClumn">
+                        <label for="usado">Aparelho usado?</label>
+                        <select name="usado">
+                            <option value="Sim">Sim</option>
+                            <option value="Não">Não</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="Série">Numero de série:</label>
+                        <input type="text" class="inputSerie" name="serieNovo"
+                            placeholder="Numero de Série do aparelho" />
+                    </div>
+                    <div class="flexClumn">
+                        <label for="imei">Numero de EMEI:</label>
+                        <input type="text" class="inputImei" name="imeiNovo" placeholder="IMEI do aparelho" />
+                    </div>
+                </div>
+
+                <div class="containerInputLado">
+                    <div class="flexClumn">
+                        <label for="numeroChip">Numero de celular:</label>
+                        <input type="text" class="inputChip" name="numeroChipNovo" placeholder="Numero do chip" />
+                    </div>
+                    <div class="flexClumn">
+                        <label for="numeroPatrimonio">Numero de Patrimonio:</label>
+                        <input type="text" class="inputPatrimonio" name="numeroPatrimonioNovo"
+                            placeholder="Numeração do patrimonio" />
+                    </div>
+                </div>
+                <div class="containerInputLado">
+                    <div class="flexClumn options">
+                        <button type="reset">Limpar</button>
+                        <a href="#page-1"><input value="Voltar" readonly></input></a>
+                        <button type="submit">Gerar PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

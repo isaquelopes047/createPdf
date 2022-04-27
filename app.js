@@ -1,104 +1,61 @@
 const express = require("express");
 const pdf = require("html-pdf");
 const ejs = require("ejs");
+const path = require('path');
 
 const app = express();
 const port = 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 app.get('/formulario', (req, res) => {
-    res.render('index');
+    res.render('criarDados');
 });
 
-app.get('/pdf', (req, res) => {
-    res.render('sucess');
-    ejs.renderFile("./views/index.ejs", {}, (err, html) => {
-        if (err) {
-            console.log(err)
-        } else {
+app.post('/pdf', (req, res) => {
 
-            pdf.create(html, {}).toFile("./meuPdf.pdf", (err, res) => {
-                if (err) {
-                    console.log('erro');
-                } else {
-                    console.log(res);
+    const { nome, date, modelo, serie, imei, numeroChip, numeroPatrimonio, problema,
+    modeloNovo, usado, serieNovo, imeiNovo, numeroChipNovo, numeroPatrimonioNovo } = req.body;
+
+    ejs.renderFile("./views/pdfCRIADO.ejs", {
+        nome: nome,
+        date: date,
+        modelo: modelo,
+        serie: serie,
+        imei: imei,
+        numeroChip: numeroChip,
+        numeroPatrimonio: numeroPatrimonio,
+        problema: problema,
+        modeloNovo: modeloNovo,
+        usado: usado,
+        serieNovo: serieNovo,
+        imeiNovo: imeiNovo,
+        numeroChipNovo: numeroChipNovo,
+        numeroPatrimonioNovo: numeroPatrimonioNovo
+    }, (err, html) => {
+        if (!err) {
+            pdf.create(html, {}).toFile("./Arquivos/meuPdf.pdf", (err, res) => {
+                if (err) console.log(err);
+                else {
+                    console.log("PDF gerado com sucesso!",res);
                 }
             })
-
         }
+        else { console.log(err) }
     })
+    res.redirect('sucess');
+});
+
+app.get('/sucess', (req, res) => {
+    let filePath = "./Arquivos/meuPdf.pdf";
+    res.download(filePath);
 });
 
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
+    console.log(`Servidor rodando na porta http://localhost:${port}/formulario`);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* const express = require("express")
-const app = express();
-const pdf = require("html-pdf");
-const ejs = require("ejs");
-
-app.set('view engine', 'ejs');
-app.set('views', './views');
-
-app.get("formulario", (req, res) => {
-    res.render('index');
-})
-
-app.get("pdf", (req, res) => {
-    var nome = "Isaque";
-    ejs.renderFile("./meuarquivo.ejs", { nome: nome }, (err, html) => {
-        if (err) {
-            console.log(err)
-        } else {
-
-            pdf.create(html, {}).toFile("./meuPdf.pdf", (err, res) => {
-                if (err) {
-                    console.log('erro');
-                } else {
-                    console.log(res);
-                }
-            })
-
-        }
-    })
-})
-
-const port = 8080;
-app.listen(port, (erro) => {
-    if (erro) console.log(erro)
-    else console.log(`Servidor aberto em: http://localhost:${port}/formulario`)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
- */

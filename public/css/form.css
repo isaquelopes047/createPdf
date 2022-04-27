@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+.Allform{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(28, 55, 153); */
+    background-color: rgb(240, 240, 240);
+    margin-top: -25px;
+    padding: 30px;
+}
+.containerInputsAll{
+    width: 900px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.containerInputLado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.flexClumn{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.flexClumn > input{
+    width: 400px;
+    height: 30px;
+    color: #212529;
+    text-align: center;
+    outline: 0px;
+    border: 1px #ccc solid;
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+.flexClumn > label{
+    color: rgb(59, 59, 59);
+    font-family: 'Oswald', sans-serif;
+}
+.flexClumn > select{
+    height: 40px;
+    background-color: #ffffff;
+    border: none;
+    text-align: center;
+    outline: 0px;
+}
+
+.containerInfo{
+    margin-top: -25px;
+}
+.containerInfo > p{
+    font-family: 'Oswald', sans-serif;
+    padding: 15px 0px 15px 150px;
+    font-size: 25px;
+    color: rgb(41, 41, 41);
+}
+.containerInfo > p:nth-child(2){
+    margin-top: -50px;
+    padding-bottom: 30px;
+    font-size: 17px;
+    color: rgb(49, 55, 58);
+}
+
+.options{
+    width: 23vw;
+    height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.options input{
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(25, 100, 212);
+}
+.options button{
+    width: 100px;
+    height: 32px;
+    border: none;
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    background-color: rgb(25, 100, 212);
+}
