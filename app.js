@@ -18,7 +18,6 @@ app.get('/formulario', (req, res) => {
 });
 
 app.post('/pdf', (req, res) => {
-
     const { nome, date, modelo, serie, imei, numeroChip, numeroPatrimonio, problema,
     modeloNovo, usado, serieNovo, imeiNovo, numeroChipNovo, numeroPatrimonioNovo } = req.body;
 
@@ -37,11 +36,11 @@ app.post('/pdf', (req, res) => {
         imeiNovo: imeiNovo,
         numeroChipNovo: numeroChipNovo,
         numeroPatrimonioNovo: numeroPatrimonioNovo
-    }, (err, html) => {
+    },  (err, html) => {
         if (!err) {
             pdf.create(html, {}).toFile("./Arquivos/meuPdf.pdf", (err, res) => {
-                if (err) console.log(err);
-                else {
+                if (err)console.log(err);
+                else{
                     console.log("PDF gerado com sucesso!",res);
                 }
             })
